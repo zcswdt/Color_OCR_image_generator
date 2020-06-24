@@ -1,35 +1,122 @@
-文本识别数据集需要大量的数据，特别是对于中文来说，中文字相对英文26个字母来说，更加复杂，数量多得多，所以需要有体量比较大的数据集才能训练得到不错的效果，目前也有一些合成的方法，VGG组就提出[SynthText](http://www.robots.ox.ac.uk/~vgg/data/scenetext/)方法合成自然场景下的文本图片，github上有作者给出的[官方代码](https://github.com/ankush-me/SynthText)，也有国内大神改写的[中文版本代码](https://github.com/JarveeLee/SynthText_Chinese_version)。但是生成的速度非常慢，而且生成机制有点复杂，总是报错，短时间内还没解决。我的需求场景仅仅是识别文字，并没有涉及到检测部分，所以不需要完整的场景图片，用一种相对简单方法来合成中文文本图片用于文本识别，分享一下实现思路。
+# Color_OCR_image_generator
+This code is used to generate some synthesized text pictures with RGB channels to train the text recognition model.
+(e.g. [deep-text-recognition](https://github.com/clovaai/deep-text-recognition-benchmark)).
+And the length and width of the generated picture is indefinite and the number of words on the picture is also variable.
+
+# Getting Started
+### Dependency
+- This work was tested with python 3.7, CUDA 10.1, python 3.6 and Ubuntu 18.03. <br> You may need to install the following libraries. <br>
+`numpy`
+`pickle`
+`PIL(pillow)`
+`sklearn`
+`matplotlib`
+`hashlib`
+`fontTools`
+`cv2(opencv)`
 
 
-## 主要思路
-借鉴了SynthText的方法，而且包括语料库、图像背景图、字体、以及色彩模型文件，都是来源于[@JarveeLee](https://github.com/JarveeLee)的中文版代码中的文件。
-1. 读取语料库，此处来源为一些童话故事txt；
-2. 随机取一段字符串，满足所需长度，再随机选择字体、字号大小；
-3. 根据子号大小以及字数目计算所需的背景图片大小，背景图片大小计算的时候可以以一定概率使文本在最终图片中有一定偏移；可以以一定概率随机产生竖直文本；
-4. 在提供的背景图中，随机取一张图，然后在图片中按照上述所需背景图片大小进行裁剪，计算裁剪图的Lab值标准差（标准差越小图像色彩分布就不会太过丰富、太过花哨），小于设定的阈值即满足要求，否则继续随机裁剪；
-5. 通过聚类的方法，分析裁剪后图的色彩分布，在色彩模型提供的色彩库中选择与当前裁剪图像色彩偏差大的作为文本颜色，这样最终构成合成图片。
+# Examples of generating images
+By default, simply run `python3 gen_dataset.py` will generate 30 text images with color channels in `output/` and a labels.txt file in current floder.<br>
 
-## 构建方法
-主要实现代码只有一个文件，其他都是合成需要的文件，合成命令：
+horizontal_text_picture<br>
+![example1.jpg](./output/img_3_0000001.jpg)
+![example2.jpg](./output/img_3_0000002.jpg)
+![example3.jpg](./output/img_3_0000003.jpg)
+![example4.jpg](./output/img_3_0000004.jpg)
 
-	python gen_dataset.py
+![example3.jpg](./output/img_3_0000005.jpg)
+![example4.jpg](./output/img_3_0000006.jpg)
+![example3.jpg](./output/img_3_0000007.jpg)
+![example4.jpg](./output/img_3_0000008.jpg)
 
-newsgroup:文本来源的语料
-models/colors_new.cp:从III-5K数据集学习到的色彩模型
-fonts：包含合成时所需字体
-所需图片bg_img来源于VGG组合成synth_80k时所用的图片集
-- bg_img.tar.gz [8.9G]：压缩的图像文件（需要使用使用imnames.cp中的过滤），链接:[http://www.robots.ox.ac.uk/~vgg/data/scenetext/preproc/depth.h5](http://www.robots.ox.ac.uk/~vgg/data/scenetext/preproc/depth.h5 "http://www.robots.ox.ac.uk/~vgg/data/scenetext/preproc/depth.h5")
-- imnames.cp[180K]：已过滤文件的名称，即，这些文件不包含文本,链接：[http://www.robots.ox.ac.uk/~vgg/data/scenetext/preproc/imnames.cp](http://www.robots.ox.ac.uk/~vgg/data/scenetext/preproc/imnames.cp "http://www.robots.ox.ac.uk/~vgg/data/scenetext/preproc/imnames.cp")
+get_vertical_text_picture<br>
+![example3.jpg](./output/img_3_0000009.jpg)
+![example4.jpg](./output/img_3_0000010.jpg)
+![example3.jpg](./output/img_3_0000011.jpg)
+![example4.jpg](./output/img_3_0000012.jpg)
+
+![example3.jpg](./output/img_3_0000013.jpg)
+![example4.jpg](./output/img_3_0000014.jpg)
+![example3.jpg](./output/img_3_0000018.jpg)
+![example4.jpg](./output/img_3_0000080.jpg)
 
 
-## 一些实现结果样例
+# Code function display
+## Running this code to add different parameters can generate text images with different effects, as follows:
+Run `python3 gen_dataset.py --blur` will generate the following three images
+| <img src="./demo_image/img_3_blur.jpg" width="300">    |   <img src="./demo_image/img_3_blur2.jpg" width="300">    |  <img src="./demo_image/img_3_blur46.jpg" width="300">   |
+`--prydown`
+| <img src="./demo_image/mi1.jpg" width="300">      |    <img src="./demo_image/mi2.jpg" width="300">    |   <img src="./demo_image/mi3.jpg" width="300">    |
+`--lr_motion`
+| <img src="./demo_image/lf1.jpg" width="300">  |   <img src="./demo_image/lf2.jpg" width="300">   |  <img src="./demo_image/lf4.jpg" width="300">   |
+`--ud_motion`
+| <img src="./demo_image/img_3_up2.jpg" width="300">      |    <img src="./demo_image/img_3_up5.jpg" width="300">    |   <img src="./demo_image/img_3_up22.jpg" width="300">    |
+`--random_offset`
+| <img src="./demo_image/rd1.jpg" width="300">    |   <img src="./demo_image/rd2.jpg" width="300">    |  <img src="./demo_image/rd3" width="300">   |
 
-![](/img/img_1.jpg)
 
-![](/img/img_2.jpg)
+## Random spaces about generating text
+Because the text in the real scene is likely to have a certain gap, if the distance of the text you generate is fixed,
+it is likely that the text in the trained model cannot be recognized with too large a gap. This code solves this very well.
+This code solves this problem by adding random spaces to the code. The specific effects are as follows:
+| <img src="./demo_image/img_3_space15.jpg" width="300">    |   <img src="./demo_image/img_3_space57.jpg" width="300">    |  <img src="./demo_image/img_3_space79.jpg" width="300">   |
 
-![](/img/img_3.jpg)
 
-![](/img/img_4.jpg)
+Of course, if you know in advance what kind of font color you need, you need to generate this type of images, 
+you can also use `--customize_color` parameters to customize the font color.
 
-可以添加一些自己的图片、语料集进行修改
+
+## About the choice of font color
+In this paper, the kmeans clustering method is used to calculate the 8 cluster centers in the LAB space 
+based on the background image clipped by the selected text, and then load the color library (including 9882 colors), 
+and randomly select No. 500 from the color library. For colors, calculate the sum of the standard deviations of each color
+ number and the cluster centers of 8 types, and randomly select one of the first 100 colors as the font color of the generated image. 
+ (This can enrich the font color, of course, you can also choose the maximum standard deviation color as the font color)
+
+## Random spaces about generating text
+When your corpus dictionary is very large, the font you choose may not support some of the words in your dictionary,
+but if you don’t filter, the generated image is likely to be garbled or blank. This code selects the text and At the same time,
+the font is selected to ensure that the currently selected text is in the font.
+
+
+## About horizontal and vertical text
+If you need some vertical text in your scene, you can modify the parameters in the code to change the direction of the generated text.
+
+## Arguments
+* `--num_img`: Number of images to generate.
+* `--font_min_size`: Can help adjust the size of the generated text and the size of the picture.
+* `--font_max_size`: Can help adjust the size of the generated text and the size of the picture.
+* `--bg_path`: The generated text pictures will use the pictures of this folder as the background.
+* `--fonts_path`: he font used to generate the picture.
+* `--corpus_path`: The corpus used to generate the text picture.
+* `--color_path`: Color font library used to generate text.
+* `--chars_file`: Chars allowed to be appear in generated images.
+* `--customize_color`: Support font custom color.
+* `--blur`: Apply gauss blur to the generated image.
+* `--prydown`: Blurred image, simulating the effect of enlargement of small pictures.
+* `--lr_motion`: Apply left and right motion blur.
+* `--ud_motion`: Apply up and down motion blur.
+* `--random_offset`: Randomly add offset.
+
+
+# About font files
+I sorted out about 700 fonts that can be used in generating OCR text pictures,
+Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw) 提取码：8kzt 
+[here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA) 提取码：s58p
+![example1.jpg](./demo_imags/ziti.jpg)
+
+
+# Tools
+You can use `sentence_filter.py` script to select different modes(contains `filter` and `split` model) to 
+filter the text and remove the text that is not in the dictionary and to cut the text of different lengths.
+
+
+# Reference
+- https://github.com/Sanster/text_renderer
+- hhttps://github.com/wang-tf/Chinese_OCR_synthetic_data
+
+
+# Contact
+Feel free to contact me if there is any question: <br>
+for code jhsignal@126.com; 
