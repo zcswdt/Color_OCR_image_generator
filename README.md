@@ -102,7 +102,7 @@ If you need some vertical text in your scene, you can modify the parameters in t
 # About font files
 I sorted out about 700 fonts that can be used in generating OCR text pictures,
 Downloaded Baidu Cloud Link as follows:<br>
-[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code:8kzt. [here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code:s58p
+ [here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code:8kzt.   [here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code:s58p
 
 ![example1.jpg](./demo_image/ziti.png)
 
@@ -114,9 +114,9 @@ filter the text and remove the text that is not in the dictionary and to cut the
 
 # Reference
 - https://github.com/Sanster/text_renderer
-- hhttps://github.com/wang-tf/Chinese_OCR_synthetic_data
+- https://github.com/wang-tf/Chinese_OCR_synthetic_data
 
 
 # Contact
 Feel free to contact me if there is any question: <br>
-for code jhsignal@126.com; 
+My mail address is jhsignal@126.com; 
