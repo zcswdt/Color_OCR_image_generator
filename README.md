@@ -51,7 +51,7 @@ Run `python3 gen_dataset.py ` will generate the following three images<br>
 | `--prydown`| <img src="./demo_image/mi1.jpg" width="200" height="32">      |    <img src="./demo_image/mi2.jpg" width="200" height="32">    |   <img src="./demo_image/mi3.jpg" width="200" height="32">  
 | `--lr_motion`| <img src="./demo_image/lf1.jpg" width="200" height="32">  |   <img src="./demo_image/lf2.jpg" width="200" height="32">   |  <img src="./demo_image/lf4.jpg" width="200" height="32"> 
 | `--ud_motion`| <img src="./demo_image/img_3_up2.jpg" width="200" height="32">      |    <img src="./demo_image/img_3_up5.jpg" width="200" height="32">    |   <img src="./demo_image/img_3_up22.jpg" width="200" height="32">    |
-|`--random_offset` | <img src="./demo_image/rd1.jpg" width="50" height="40">    |   <img src="./demo_image/rd2.jpg" width="60" height="45">    |  <img src="./demo_image/rd3,jpg" width="160" height="60">  
+|`--random_offset` | <img src="./demo_image/rd1.jpg" width="50" height="40">    |   <img src="./demo_image/rd2.jpg" width="60" height="45">    |  <img src="./demo_image/rd3.jpg" width="160" height="60">  
 
 ## Random spaces about generating text
 Because the text in the real scene is likely to have a certain gap, if the distance of the text you generate is fixed,
@@ -101,7 +101,7 @@ If you need some vertical text in your scene, you can modify the parameters in t
 I sorted out about 700 fonts that can be used in generating OCR text pictures,
 Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code：8kzt 
 [here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code：s58p<br>
-![example1.jpg](./demo_image/ziti.jpg)
+![example1.jpg](./demo_image/ziti.png)
 
 
 # Tools
