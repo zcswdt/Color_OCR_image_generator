@@ -25,12 +25,9 @@ horizontal_text_picture<br>
 ![example3.jpg](./output/img_3_0000003.jpg)
 ![example4.jpg](./output/img_3_0000004.jpg)
 
-![example3.jpg](./output/img_3_0000005.jpg)
-
-![example4.jpg](./output/img_3_0000006.jpg)
-
-![example3.jpg](./output/img_3_0000007.jpg)
-
+![example3.jpg](./output/img_3_0000005.jpg) 
+![example4.jpg](./output/img_3_0000006.jpg) 
+![example3.jpg](./output/img_3_0000007.jpg) 
 ![example4.jpg](./output/img_3_0000008.jpg)
 
 get_vertical_text_picture<br>
