@@ -5,15 +5,15 @@ And the length and width of the generated picture is indefinite and the number o
 
 # Getting Started
 ### Dependency
-- This work was tested with python 3.7, CUDA 10.1, python 3.6 and Ubuntu 18.03. <br> You may need to install the following libraries. <br>
-`numpy`
-`pickle`
-`PIL(pillow)`
-`sklearn`
-`matplotlib`
-`hashlib`
-`fontTools`
-`cv2(opencv)`
+- This work was tested with python 3.7,and Ubuntu 18.03. <br> You may need to install the following libraries. <br>
+* `numpy`
+* `pickle`
+* `PIL(pillow)`
+* `sklearn`
+* `matplotlib`
+* `hashlib`
+* `fontTools`
+* `cv2(opencv)`
 
 
 # Examples of generating images
@@ -44,16 +44,16 @@ get_vertical_text_picture<br>
 
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
-Run `python3 gen_dataset.py --blur` will generate the following three images
-| <img src="./demo_image/img_3_blur.jpg" width="300">    |   <img src="./demo_image/img_3_blur2.jpg" width="300">    |  <img src="./demo_image/img_3_blur46.jpg" width="300">   |
-`--prydown`
-| <img src="./demo_image/mi1.jpg" width="300">      |    <img src="./demo_image/mi2.jpg" width="300">    |   <img src="./demo_image/mi3.jpg" width="300">    |
-`--lr_motion`
-| <img src="./demo_image/lf1.jpg" width="300">  |   <img src="./demo_image/lf2.jpg" width="300">   |  <img src="./demo_image/lf4.jpg" width="300">   |
-`--ud_motion`
-| <img src="./demo_image/img_3_up2.jpg" width="300">      |    <img src="./demo_image/img_3_up5.jpg" width="300">    |   <img src="./demo_image/img_3_up22.jpg" width="300">    |
-`--random_offset`
-| <img src="./demo_image/rd1.jpg" width="300">    |   <img src="./demo_image/rd2.jpg" width="300">    |  <img src="./demo_image/rd3" width="300">   |
+Run `python3 gen_dataset.py --blur` will generate the following three images<br>
+| <img src="./demo_image/img_3_blur.jpg" width="300">    |   <img src="./demo_image/img_3_blur2.jpg" width="300">    |  <img src="./demo_image/img_3_blur46.jpg" width="300">   |<br>
+`--prydown`<br>
+| <img src="./demo_image/mi1.jpg" width="300">      |    <img src="./demo_image/mi2.jpg" width="300">    |   <img src="./demo_image/mi3.jpg" width="300">    |<br>
+`--lr_motion`<br>
+| <img src="./demo_image/lf1.jpg" width="300">  |   <img src="./demo_image/lf2.jpg" width="300">   |  <img src="./demo_image/lf4.jpg" width="300">   |<br>
+`--ud_motion`<br>
+| <img src="./demo_image/img_3_up2.jpg" width="300">      |    <img src="./demo_image/img_3_up5.jpg" width="300">    |   <img src="./demo_image/img_3_up22.jpg" width="300">    |<br>
+`--random_offset`<br>
+| <img src="./demo_image/rd1.jpg" width="300">    |   <img src="./demo_image/rd2.jpg" width="300">    |  <img src="./demo_image/rd3" width="300">   |<br>
 
 
 ## Random spaces about generating text
@@ -102,8 +102,8 @@ If you need some vertical text in your scene, you can modify the parameters in t
 
 # About font files
 I sorted out about 700 fonts that can be used in generating OCR text pictures,
-Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw) 提取码：8kzt 
-[here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA) 提取码：s58p
+Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code：8kzt 
+[here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code：s58p
 ![example1.jpg](./demo_imags/ziti.jpg)
 
 
