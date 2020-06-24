@@ -19,20 +19,19 @@ And the length and width of the generated picture is indefinite and the number o
 # Examples of generating images
 By default, simply run `python3 gen_dataset.py` will generate 30 text images with color channels in `output/` and a labels.txt file in current floder.<br>
 
-horizontal_text_picture<br>
+## horizontal_text_picture<br>
 ![example1.jpg](./output/img_3_0000001.jpg)
 ![example2.jpg](./output/img_3_0000002.jpg)
-
 ![example3.jpg](./output/img_3_0000003.jpg)
-![example4.jpg](./output/img_3_0000004.jpg)
 
+![example4.jpg](./output/img_3_0000004.jpg)
 ![example3.jpg](./output/img_3_0000005.jpg) 
 ![example4.jpg](./output/img_3_0000006.jpg) 
 
 ![example3.jpg](./output/img_3_0000007.jpg) 
 ![example4.jpg](./output/img_3_0000008.jpg)
 
-get_vertical_text_picture<br>
+## get_vertical_text_picture<br>
 
 ![example3.jpg](./output/img_3_0000096.jpg)
 ![example4.jpg](./output/img_3_0000014.jpg)
