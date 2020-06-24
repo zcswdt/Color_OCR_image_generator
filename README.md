@@ -5,7 +5,7 @@ And the length and width of the generated picture is indefinite and the number o
 
 # Getting Started
 ### Dependency
-- This work was tested with python 3.7,and Ubuntu 18.03. <br> You may need to install the following libraries. <br>
+- This work was tested with python 3.7,and Ubuntu 18.03. You may need to install the following libraries. <br>
 * `numpy`
 * `pickle`
 * `PIL(pillow)`
@@ -43,7 +43,7 @@ By default, simply run `python3 gen_dataset.py` will generate 30 text images wit
 
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
-Run `python3 gen_dataset.py ` will generate the following three images<br>
+Run `python3 gen_dataset.py ` will generate the following images<br>
 
 | parameter  |    Example images 2    |      Example images 2 |        Example images 3 |
 | ---         |     ---      |          --- |           --- |
