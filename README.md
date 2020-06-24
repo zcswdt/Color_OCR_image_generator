@@ -104,7 +104,7 @@ If you need some vertical text in your scene, you can modify the parameters in t
 I sorted out about 700 fonts that can be used in generating OCR text pictures,
 Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code：8kzt 
 [here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code：s58p<br>
-![example1.jpg](./demo_imags/ziti.jpg)
+![example1.jpg](./demo_image/ziti.jpg)
 
 
 # Tools
