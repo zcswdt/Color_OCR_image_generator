@@ -58,7 +58,7 @@ Because the text in the real scene is likely to have a certain gap, if the dista
 it is likely that the text in the trained model cannot be recognized with too large a gap. This code solves this very well.
 This code solves this problem by adding random spaces to the code. The specific effects are as follows:<br>
 |   Example images 2    |      Example images 2 |        Example images 3 |
-| ---         |     ---      |          --- |           --- |
+| ---      |          --- |           --- |
 | <img src="./demo_image/img_3_space15.jpg" width="250">    |   <img src="./demo_image/img_3_space57.jpg" width="250">    |  <img src="./demo_image/img_3_space79.jpg" width="250">   |
 
 
@@ -103,6 +103,7 @@ If you need some vertical text in your scene, you can modify the parameters in t
 I sorted out about 700 fonts that can be used in generating OCR text pictures,
 Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code：8kzt   
 [here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code：s58p
+
 ![example1.jpg](./demo_image/ziti.png)
 
 
