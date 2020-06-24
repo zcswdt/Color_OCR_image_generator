@@ -45,15 +45,15 @@ get_vertical_text_picture<br>
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
 Run `python3 gen_dataset.py --blur` will generate the following three images<br>
-| <img src="./demo_image/img_3_blur.jpg" width="300">    |   <img src="./demo_image/img_3_blur2.jpg" width="300">    |  <img src="./demo_image/img_3_blur46.jpg" width="300">   |<br>
+| <img src="./demo_image/img_3_blur.jpg" width="200" height="32" >    |   <img src="./demo_image/img_3_blur2.jpg" width="200" height="32">    |  <img src="./demo_image/img_3_blur46.jpg" width="200" height="32">   |<br>
 `--prydown`<br>
-| <img src="./demo_image/mi1.jpg" width="300">      |    <img src="./demo_image/mi2.jpg" width="300">    |   <img src="./demo_image/mi3.jpg" width="300">    |<br>
+| <img src="./demo_image/mi1.jpg" width="200" height="32">      |    <img src="./demo_image/mi2.jpg" width="200" height="32">    |   <img src="./demo_image/mi3.jpg" width="200" height="32">    |<br>
 `--lr_motion`<br>
-| <img src="./demo_image/lf1.jpg" width="300">  |   <img src="./demo_image/lf2.jpg" width="300">   |  <img src="./demo_image/lf4.jpg" width="300">   |<br>
+| <img src="./demo_image/lf1.jpg" width="200" height="32">  |   <img src="./demo_image/lf2.jpg" width="200" height="32">   |  <img src="./demo_image/lf4.jpg" width="200" height="32">   |<br>
 `--ud_motion`<br>
-| <img src="./demo_image/img_3_up2.jpg" width="300">      |    <img src="./demo_image/img_3_up5.jpg" width="300">    |   <img src="./demo_image/img_3_up22.jpg" width="300">    |<br>
+| <img src="./demo_image/img_3_up2.jpg" width="200" height="32">      |    <img src="./demo_image/img_3_up5.jpg" width="200" height="32">    |   <img src="./demo_image/img_3_up22.jpg" width="200" height="32">    |<br>
 `--random_offset`<br>
-| <img src="./demo_image/rd1.jpg" width="300">    |   <img src="./demo_image/rd2.jpg" width="300">    |  <img src="./demo_image/rd3" width="300">   |<br>
+| <img src="./demo_image/rd1.jpg" width="200" height="32">    |   <img src="./demo_image/rd2.jpg" width="200" height="32">    |  <img src="./demo_image/rd3" width="200" height="32">   |<br>
 
 
 ## Random spaces about generating text
