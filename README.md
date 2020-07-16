@@ -5,7 +5,7 @@ And the length and width of the generated picture is indefinite and the number o
 
 # Getting Started
 ### Dependency
-- This work was tested with python 3.7,and Ubuntu 18.03. <br> You may need to install the following libraries. <br>
+- This work was tested with python 3.7,and Ubuntu 18.03. You may need to install the following libraries. <br>
 * `numpy`
 * `pickle`
 * `PIL(pillow)`
@@ -17,50 +17,49 @@ And the length and width of the generated picture is indefinite and the number o
 
 
 # Examples of generating images
-By default, simply run `python3 gen_dataset.py` will generate 30 text images with color channels in `output/` and a labels.txt file in current floder.<br>
+By default, simply run `python3 OCR_image_generator.py` will generate 30 text images with color channels in `output/` and a labels.txt file in current floder.<br>
 
-horizontal_text_picture<br>
+## 1.horizontal_text_picture<br>
 ![example1.jpg](./output/img_3_0000001.jpg)
 ![example2.jpg](./output/img_3_0000002.jpg)
 ![example3.jpg](./output/img_3_0000003.jpg)
+
 ![example4.jpg](./output/img_3_0000004.jpg)
 
-![example3.jpg](./output/img_3_0000005.jpg)
-![example4.jpg](./output/img_3_0000006.jpg)
-![example3.jpg](./output/img_3_0000007.jpg)
+![example3.jpg](./output/img_3_0000005.jpg) 
+![example4.jpg](./output/img_3_0000006.jpg) 
+
+![example3.jpg](./output/img_3_0000007.jpg) 
 ![example4.jpg](./output/img_3_0000008.jpg)
 
-get_vertical_text_picture<br>
-![example3.jpg](./output/img_3_0000009.jpg)
-![example4.jpg](./output/img_3_0000010.jpg)
-![example3.jpg](./output/img_3_0000011.jpg)
-![example4.jpg](./output/img_3_0000012.jpg)
+## 2.get_vertical_text_picture<br>
 
-![example3.jpg](./output/img_3_0000013.jpg)
-![example4.jpg](./output/img_3_0000014.jpg)
-![example3.jpg](./output/img_3_0000018.jpg)
+![example3.jpg](./output/img_3_0000096.jpg)
+![example4.jpg](./output/img_3_0000064.jpg)
+
+![example3.jpg](./output/img_3_0000088.jpg)
 ![example4.jpg](./output/img_3_0000080.jpg)
 
 
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
-Run `python3 gen_dataset.py --blur` will generate the following three images<br>
-| <img src="./demo_image/img_3_blur.jpg" width="300">    |   <img src="./demo_image/img_3_blur2.jpg" width="300">    |  <img src="./demo_image/img_3_blur46.jpg" width="300">   |<br>
-`--prydown`<br>
-| <img src="./demo_image/mi1.jpg" width="300">      |    <img src="./demo_image/mi2.jpg" width="300">    |   <img src="./demo_image/mi3.jpg" width="300">    |<br>
-`--lr_motion`<br>
-| <img src="./demo_image/lf1.jpg" width="300">  |   <img src="./demo_image/lf2.jpg" width="300">   |  <img src="./demo_image/lf4.jpg" width="300">   |<br>
-`--ud_motion`<br>
-| <img src="./demo_image/img_3_up2.jpg" width="300">      |    <img src="./demo_image/img_3_up5.jpg" width="300">    |   <img src="./demo_image/img_3_up22.jpg" width="300">    |<br>
-`--random_offset`<br>
-| <img src="./demo_image/rd1.jpg" width="300">    |   <img src="./demo_image/rd2.jpg" width="300">    |  <img src="./demo_image/rd3" width="300">   |<br>
+Run `python3 gen_dataset.py ` will generate the following images<br>
 
+| parameter  |    Example images 2    |      Example images 2 |        Example images 3 |
+| ---         |     ---      |          --- |           --- |
+| `--blur `| <img src="./demo_image/img_3_blur.jpg" width="200" height="32" >    |   <img src="./demo_image/img_3_blur2.jpg" width="200" height="32">    |  <img src="./demo_image/img_3_blur46.jpg" width="200" height="32">   |
+| `--prydown`| <img src="./demo_image/mi1.jpg" width="200" height="32">      |    <img src="./demo_image/mi2.jpg" width="200" height="32">    |   <img src="./demo_image/mi3.jpg" width="200" height="32">  
+| `--lr_motion`| <img src="./demo_image/lf1.jpg" width="200" height="32">  |   <img src="./demo_image/lf2.jpg" width="200" height="32">   |  <img src="./demo_image/lf4.jpg" width="200" height="32"> 
+| `--ud_motion`| <img src="./demo_image/img_3_up2.jpg" width="200" height="32">      |    <img src="./demo_image/img_3_up5.jpg" width="200" height="32">    |   <img src="./demo_image/img_3_up22.jpg" width="200" height="32">    |
+|`--random_offset` | <img src="./demo_image/rd1.jpg" width="50" height="40">    |   <img src="./demo_image/rd2.jpg" width="60" height="45">    |  <img src="./demo_image/rd3.jpg" width="160" height="60">  
 
 ## Random spaces about generating text
 Because the text in the real scene is likely to have a certain gap, if the distance of the text you generate is fixed,
 it is likely that the text in the trained model cannot be recognized with too large a gap. This code solves this very well.
 This code solves this problem by adding random spaces to the code. The specific effects are as follows:<br>
-| <img src="./demo_image/img_3_space15.jpg" width="300">    |   <img src="./demo_image/img_3_space57.jpg" width="300">    |  <img src="./demo_image/img_3_space79.jpg" width="300">   |
+|   Example images 2    |      Example images 2 |        Example images 3 |
+| ---      |          --- |           --- |
+| <img src="./demo_image/img_3_space15.jpg" width="250">    |   <img src="./demo_image/img_3_space57.jpg" width="250">    |  <img src="./demo_image/img_3_space79.jpg" width="250">   |
 
 
 Of course, if you know in advance what kind of font color you need, you need to generate this type of images, 
@@ -102,9 +101,10 @@ If you need some vertical text in your scene, you can modify the parameters in t
 
 # About font files
 I sorted out about 700 fonts that can be used in generating OCR text pictures,
-Downloaded Baidu Cloud Link as follows:[here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code：8kzt 
-[here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code：s58p<br>
-![example1.jpg](./demo_image/ziti.jpg)
+Downloaded Baidu Cloud Link as follows:<br>
+ [here1](https://pan.baidu.com/s/1dRp70rEVeauu9rWB7bfGZw). Extraction code:8kzt.   [here2](https://pan.baidu.com/s/1aHkYSxactHm4u5eEiqHDAA). Extraction code:s58p
+
+![example1.jpg](./demo_image/ziti.png)
 
 
 # Tools
@@ -114,9 +114,9 @@ filter the text and remove the text that is not in the dictionary and to cut the
 
 # Reference
 - https://github.com/Sanster/text_renderer
-- hhttps://github.com/wang-tf/Chinese_OCR_synthetic_data
+- https://github.com/wang-tf/Chinese_OCR_synthetic_data
 
 
 # Contact
 Feel free to contact me if there is any question: <br>
-for code jhsignal@126.com; 
+My mail address is jhsignal@126.com; 
