@@ -38,7 +38,7 @@ By default, simply run `python3 OCR_image_generator.py` will generate 30 text im
 ![example4.jpg](./demo_image/v_2.jpg)
 
 ![example3.jpg](./demo_image/v-3.jpg)
-![example4.jpg](./output/v7.jpg)
+![example4.jpg](./demo_image/v7.jpg)
 
 ![example3.jpg](./demo_image/v4.jpg)
 ![example4.jpg](./demo_image/v8.jpg)
