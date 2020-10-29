@@ -34,14 +34,14 @@ By default, simply run `python3 OCR_image_generator.py` will generate 30 text im
 
 ## 2.get_vertical_text_picture<br>
 
-![example3.jpg](./output/v-1.jpg)
-![example4.jpg](./output/v_2.jpg)
+![example3.jpg](./demo_image/v-1.jpg)
+![example4.jpg](./demo_image/v_2.jpg)
 
-![example3.jpg](./output/v-3.jpg)
+![example3.jpg](./demo_image/v-3.jpg)
 ![example4.jpg](./output/v7.jpg)
 
-![example3.jpg](./output/v4.jpg)
-![example4.jpg](./output/v8.jpg)
+![example3.jpg](./demo_image/v4.jpg)
+![example4.jpg](./demo_image/v8.jpg)
 
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
