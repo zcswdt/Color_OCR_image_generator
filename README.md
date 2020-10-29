@@ -45,7 +45,7 @@ By default, simply run `python3 OCR_image_generator.py` will generate 30 text im
 
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
-Run `python3 gen_dataset.py ` will generate the following images<br>
+Run `python3 OCR_image_generator.py ` will generate the following images<br>
 
 | parameter  |    Example images 2    |      Example images 2 |        Example images 3 |
 | ---         |     ---      |          --- |           --- |
