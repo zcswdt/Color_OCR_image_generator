@@ -34,12 +34,14 @@ By default, simply run `python3 OCR_image_generator.py` will generate 30 text im
 
 ## 2.get_vertical_text_picture<br>
 
-![example3.jpg](./output/img_3_0000096.jpg)
-![example4.jpg](./output/img_3_0000064.jpg)
+![example3.jpg](./output/v-1.jpg)
+![example4.jpg](./output/v_2.jpg)
 
-![example3.jpg](./output/img_3_0000088.jpg)
-![example4.jpg](./output/img_3_0000080.jpg)
+![example3.jpg](./output/v-3.jpg)
+![example4.jpg](./output/v7.jpg)
 
+![example3.jpg](./output/v4.jpg)
+![example4.jpg](./output/v8.jpg)
 
 # Code function display
 ## Running this code to add different parameters can generate text images with different effects, as follows:
@@ -52,6 +54,9 @@ Run `python3 gen_dataset.py ` will generate the following images<br>
 | `--lr_motion`| <img src="./demo_image/lf1.jpg" width="200" height="32">  |   <img src="./demo_image/lf2.jpg" width="200" height="32">   |  <img src="./demo_image/lf4.jpg" width="200" height="32"> 
 | `--ud_motion`| <img src="./demo_image/img_3_up2.jpg" width="200" height="32">      |    <img src="./demo_image/img_3_up5.jpg" width="200" height="32">    |   <img src="./demo_image/img_3_up22.jpg" width="200" height="32">    |
 |`--random_offset` | <img src="./demo_image/rd1.jpg" width="50" height="40">    |   <img src="./demo_image/rd2.jpg" width="60" height="45">    |  <img src="./demo_image/rd3.jpg" width="160" height="60">  
+|`noise_enable` | <img src="./demo_image/n1.jpg" width="200" height="32">    |   <img src="./demo_image/n2.jpg" width="200" height="32">    |  <img src="./demo_image/n3.jpg" width="200" height="32">  
+
+
 
 ## Random spaces about generating text
 Because the text in the real scene is likely to have a certain gap, if the distance of the text you generate is fixed,
@@ -73,7 +78,7 @@ and randomly select No. 500 from the color library. For colors, calculate the su
  number and the cluster centers of 8 types, and randomly select one of the first 100 colors as the font color of the generated image. 
  (This can enrich the font color, of course, you can also choose the maximum standard deviation color as the font color)
 
-## Random spaces about generating text
+## About the choice of font and corpus
 When your corpus dictionary is very large, the font you choose may not support some of the words in your dictionary,
 but if you don’t filter, the generated image is likely to be garbled or blank. This code selects the text and At the same time,
 the font is selected to ensure that the currently selected text is in the font.

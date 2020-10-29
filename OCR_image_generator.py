@@ -20,6 +20,16 @@ import hashlib
 from fontTools.ttLib import TTCollection, TTFont
 import argparse
 
+from tools.config import load_config
+from noiser import Noiser
+from tools.utils import apply
+
+
+from data_aug import apply_blur_on_output
+from data_aug import apply_prydown
+from data_aug import apply_lr_motion
+from data_aug import apply_up_motion
+
 
 class FontColor(object):
     def __init__(self, col_file):
@@ -422,7 +432,7 @@ def get_vertical_text_picture(image_file,color_lib,char_lines,fonts_list,font_un
         i = i + 1
 
     crop_img = img.crop((crop_x1, crop_y1, crop_x2, crop_y2))
-    crop_img = crop_img.transpose(Image.ROTATE_270)
+    crop_img = crop_img.transpose(Image.ROTATE_90)
     return crop_img,chars
 
 
@@ -556,77 +566,11 @@ def check_font_chars(ttf, charset):
 
 
 
-def prob(percent):
-    """
-    percent: 0 ~ 1, e.g: 如果 percent=0.1，有 10% 的可能性
-    """
-    assert 0 <= percent <= 1
-    if random.uniform(0, 1) <= percent:
-        return True
-    return False
-
-
-def apply_blur_on_output(img):
-    if prob(0.5):
-        return apply_gauss_blur(img, [3, 5])
-    else:
-        return apply_norm_blur(img)
-
-def apply_gauss_blur(img, ks=None):
-    if ks is None:
-        ks = [7, 9, 11, 13]
-    ksize = random.choice(ks)
-
-    sigmas = [0, 1, 2, 3, 4, 5, 6, 7]
-    sigma = 0
-    if ksize <= 3:
-        sigma = random.choice(sigmas)
-    img = cv2.GaussianBlur(img, (ksize, ksize), sigma)
-    return img
-
-def apply_norm_blur(img, ks=None):
-    # kernel == 1, the output image will be the same
-    if ks is None:
-        ks = [2, 3]
-    kernel = random.choice(ks)
-    img = cv2.blur(img, (kernel, kernel))
-    return img
-
-def apply_prydown(img):
-    """
-    模糊图像，模拟小图片放大的效果
-    """
-    scale = random.uniform(1, 1.5)
-    height = img.shape[0]
-    width = img.shape[1]
-
-    out = cv2.resize(img, (int(width / scale), int(height / scale)), interpolation=cv2.INTER_AREA)
-    return cv2.resize(out, (width, height), interpolation=cv2.INTER_AREA)
-
-def apply_lr_motion(image):    
-    kernel_size = 5
-    kernel_motion_blur = np.zeros((kernel_size, kernel_size))
-    kernel_motion_blur[int((kernel_size - 1) / 2), :] = np.ones(kernel_size)
-    kernel_motion_blur = kernel_motion_blur / kernel_size
-    image = cv2.filter2D(image, -1, kernel_motion_blur)
-    return image
-
-
-def apply_up_motion(image): 
-    kernel_size = 9
-    kernel_motion_blur = np.zeros((kernel_size, kernel_size))
-    kernel_motion_blur[:, int((kernel_size - 1) / 2)] = np.ones(kernel_size)
-    kernel_motion_blur = kernel_motion_blur / kernel_size
-    image = cv2.filter2D(image, -1, kernel_motion_blur)
-    return image
-
-
-
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
         
-    parser.add_argument('--num_img', type=int, default=100, help="Number of images to generate")
+    parser.add_argument('--num_img', type=int, default=30, help="Number of images to generate")
     
     parser.add_argument('--font_min_size', type=int, default=12)
     parser.add_argument('--font_max_size', type=int, default=70,
@@ -663,13 +607,21 @@ if __name__ == '__main__':
     
     parser.add_argument('--random_offset', action='store_true', default=True,
                 help="Randomly add offset") 
-  
-    
+    #将noise.yaml中noise.enable设置成true，生成图片将随机加入噪音
+    parser.add_argument('--config_file', type=str, default='noise.yaml',
+                    help='Set the parameters when rendering images')
+      
     parser.add_argument('--output_dir', type=str, default='./output/', help='Images save dir')
 
+    
 
     cf = parser.parse_args()
-        
+    
+    print('cf.config_file',cf.config_file)
+    flag = load_config(cf.config_file) 
+    
+    #实例化噪音参数
+    noiser = Noiser(flag) 
     
     # 读入字体色彩库
     color_lib = FontColor(cf.color_path)
@@ -721,7 +673,7 @@ if __name__ == '__main__':
         rnd = random.random()
         if rnd<0.8: # 设定产生水平文本的概率
             gen_img, chars = get_horizontal_text_picture(img_path,color_lib,char_lines,fonts_list,font_unsupport_chars,cf)       
-        else:
+        else:       #设定产生竖直文本的概率
             gen_img, chars = get_vertical_text_picture(img_path,color_lib,char_lines,fonts_list,font_unsupport_chars,cf)            
         save_img_name = 'img_3_' + str(i).zfill(7) + '.jpg'
         
@@ -747,7 +699,19 @@ if __name__ == '__main__':
         if cf.ud_motion:
             image_arr = np.array(gen_img)
             gen_img = apply_up_motion(image_arr)        
-            gen_img = Image.fromarray(np.uint8(gen_img))      
+            gen_img = Image.fromarray(np.uint8(gen_img)) 
+
+        print('gen_img2',gen_img)
+    
+        if apply(flag.noise):
+            gen_img = np.clip(gen_img, 0., 255.)
+            gen_img = noiser.apply(gen_img)
+            gen_img = Image.fromarray(np.uint8(gen_img))
+            print('gen_img1',gen_img)
+
+
+    
+            
         gen_img.save(cf.output_dir+save_img_name)
         f.write(save_img_name+ ' '+chars+'\n')
         print('gennerating:-------'+save_img_name)
