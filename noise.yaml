@@ -1,0 +1,21 @@
+noise:
+  enable: false
+  fraction: 0.3
+
+  gauss:
+    enable: true
+    fraction: 0.35
+
+  uniform:
+    enable: false
+    fraction: 0.25
+
+  salt_pepper:
+    enable: true
+    fraction: 0.35
+
+  poisson:
+    enable: true
+    fraction: 0.3
+
+
